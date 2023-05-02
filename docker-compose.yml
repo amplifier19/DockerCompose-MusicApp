@@ -1,0 +1,55 @@
+version: '3'
+services:
+  playlist:
+    build: ./playlist
+    restart: always
+    container_name: playlist
+    ports:
+      - 4000:4000
+    depends_on:
+      - mongodb-playlist
+  mongodb-playlist:
+    image: mongo
+    container_name: mongodb-playlist
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data-playlist:/data/db
+
+  track:
+    build: ./track
+    restart: always
+    container_name: track
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongodb-track
+  mongodb-track:
+    image: mongo
+    container_name: mongodb-track
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data-track:/data/db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_HOST_IP_ADDRESS: x.x.x.x
+    restart: always
+    container_name: frontend
+    depends_on:
+      - playlist
+      - track
+    ports:
+      - 3000:3000
+
+volumes:
+  mongo-data-playlist:
+    driver: local
+  mongo-data-track:
+    driver: local

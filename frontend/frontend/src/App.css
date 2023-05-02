@@ -1,0 +1,153 @@
+#root {
+    width: 100vw;
+    --orange: #FE5800;
+    --black: #202231;
+    --white: #FBFCF8;
+    height: 100vh;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black);
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.middle {
+    padding-bottom: 2rem;
+}
+
+.menuContainer {
+    margin-top: 3rem;
+    padding: 0.5rem 0;
+}
+
+.menuItem {
+
+    display: flex;
+    align-items: center;
+
+    margin: 0.5rem 0 0 1rem;
+    gap: 0.5rem;
+
+}
+
+.menuItem .menuItemDesc {
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.menuItem .menuIcon {
+    color: var(--orange);
+    cursor: pointer;
+}
+
+.leftRightContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem auto;
+    gap: 20%;
+}
+
+.left {
+    padding-left: 1.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* width: 50% */
+}
+
+
+.playlistContainer {
+    padding: 0.5rem 0;
+}
+
+.playlistHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+}
+
+.playlistHeader>h2 {
+    color: var(--orange);
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    size: 20px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* .tracksPlaylistsContainer {
+    padding: 0.5rem;
+} */
+.rightContainer {
+    margin-top: 6rem;
+}
+
+.right {
+    height: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--orange) 0px 3px 20px 0px;
+    padding-top: 1rem;
+    align-items: center;
+    transition: height 3s ease-in-out;
+}
+
+.right.show {
+    height: auto;
+}
+
+.trackHeader {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.trackInfo {
+    color: var(--white);
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrowIcon {
+    color: var(--orange);
+}
+
+/* .rightWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* .trackName {} */
+
+@media only screen and (max-width: 800px) {
+    .App {
+        height: fit-content;
+    }
+
+    .leftRightContainer {
+        flex-direction: column;
+    }
+
+    .right {
+        margin: 4rem 2rem;
+    }
+
+}

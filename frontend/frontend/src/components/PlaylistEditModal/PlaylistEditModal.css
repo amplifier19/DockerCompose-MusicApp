@@ -1,0 +1,91 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContainer {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 12px;
+    background-color: #363A55;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.modalContainer .modalTitle {
+    font-size: 2rem;
+    color: var(--white);
+    display: flex;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#X {
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modalContainer .fieldContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+}
+
+.fieldContainer .field {
+    color: var(--white);
+    margin: 0.5rem;
+}
+
+.fieldContainer .field label {
+    margin: 1rem;
+}
+
+.fieldContainer .field input[type=text],
+select {
+    width: auto;
+    border-radius: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+}
+
+.modalContainer .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBtnContainer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modalBtnContainer #cancelBtn {
+    background-color: crimson;
+}

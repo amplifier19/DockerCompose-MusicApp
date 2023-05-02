@@ -1,0 +1,16 @@
+.playlist {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.4rem 1rem;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.name {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+}

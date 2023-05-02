@@ -1,0 +1,17 @@
+.playPauseBtn {
+    color: var(--orange);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+.controller {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.time {
+    color: var(--white);
+}
