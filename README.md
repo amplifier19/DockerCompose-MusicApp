@@ -34,7 +34,7 @@ This app is made up of 3 distinct parts:
         * Its own mongodb database to store track progress
         
 * The frontend service  [[dockerfile](./frontend/Dockerfile),[source code](./frontend/frontend/)]
-    * Written in React , this is the the main app exposed to the user and it allows easy playlist management and playback with a simple and intuitive UI. It is compose by the a single docker container running the frontend app at port 3000 and requires the ip of the of the host machine to be set in the .env file in the root directory of the project.
+    * Written in React , this is the the main app exposed to the user and it allows easy playlist management and playback with a simple and intuitive UI. It is composed by a single docker container running the frontend app on port 3000 and requires the ip of the host machine to be set as an environment variable during build.
 
 <!-- TODO: explain how the containers communicate with each other -->
 
@@ -45,7 +45,7 @@ This app is made up of 3 distinct parts:
 
 The root [docker-compose.yml](./docker-compose.yml) file is responsible for building and running the 3 microservices and their respective databases. It also creates a network for the microservices to communicate with each other.
 
-1. The first service is playlist api consisting of the api and its accompanied database container. The api is built from the [Dockerfile](./playlist/Dockerfile) in the playlist directory and the database is built from the mongo image. The api is exposed at port 4000. The api depends on the database to be running before it can start.
+1. The first service consists the playlist api and its accompanied database container. The api is built from the [Dockerfile](./playlist/Dockerfile) in the playlist directory and the database is built from the mongo image. The api is exposed at port 4000. The api depends on the database to be running before it can start.
 
 ---
     services:
@@ -67,7 +67,7 @@ The root [docker-compose.yml](./docker-compose.yml) file is responsible for buil
         - mongo-data-playlist:/data/db
 ---
 
-2. The second service is the track api consisting of the api and its accompanied database container. The api is built from the [Dockerfile](./track/Dockerfile) in the track directory and the database is built from the mongo image. The api is exposed at port 5000. The api depends on the database to be running before it can start.
+2. The second service is the track api consisting of the api and its accompanied database container. The api is built from the [Dockerfile](./track/Dockerfile) in the track directory and the database is built from the mongo image. The api is exposed at port 5000. The api depends on the database to be running before it builds.
 
 ---
     track:
@@ -88,7 +88,7 @@ The root [docker-compose.yml](./docker-compose.yml) file is responsible for buil
         - mongo-data-track:/data/db
 ---
 
-3. The final microservice is the frontend app. It is built from the [Dockerfile](./frontend/Dockerfile) in the frontend directory. The app is exposed at port 3000. The app depends on the playlist and track api to be running before it can start. It also requires the ip of the host machine to be set as an argument inside the docker-compose file.
+3. The final microservice is the frontend service. It is built from the [Dockerfile](./frontend/Dockerfile) in the frontend directory. The app is exposed on port 3000. The app depends on the playlist and track service to be running before it builds. It also requires the ip of the host machine to be set as an argument inside the docker-compose file.
 
 ---
     frontend:
@@ -104,4 +104,4 @@ The root [docker-compose.yml](./docker-compose.yml) file is responsible for buil
         - track
         ports:
         - 3000:3000
----
+--
