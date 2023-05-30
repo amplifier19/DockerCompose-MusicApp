@@ -1,13 +1,13 @@
 # React Frontend
 
-This is the frontend exposed to the user and is accessible at port 3000. 
+This is the frontend service exposed to the user and is accessible on port 3000. 
 **Important: In order to be accessible from the host machine, the ip of the host machine must be set in the docker-compose.yml file in the root directory of the project under ```frontend -> build -> args -> REACT_APP_HOST_IP```.**
 
 ## How does it work?
 
 Inside the /frontend folder is the source code for the frontend app, while inside the dockerfile is the instructions for building the docker image for the frontend app. The docker image is built using the docker-compose file in the root directory of the project.
 
-The dockerfile is based on the the node:17-alpine image : `` FROM node:17-alpine `` and then is accompanied by the following instructions:
+The dockerfile is based on the the node:17-alpine image : `` FROM node:17-alpine ``
 
 ---
     RUN mkdir -p /home/frontend
@@ -25,7 +25,7 @@ The dockerfile is based on the the node:17-alpine image : `` FROM node:17-alpine
     CMD ["npm", "start"]
 ---
 
-which in order do the following:
+The above instructions do the following:
 1. Create a directory for the frontend app
 2. Copy the source code for the frontend app into the directory
 3. Set the working directory to the frontend app directory
