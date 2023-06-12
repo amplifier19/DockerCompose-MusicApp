@@ -4,12 +4,13 @@
 
 This is a music player web app that allows you to play music from youtube links . It also allows you to create a mutiple playlists and play the tracks in the order you want.
 
-## Installation
+## Deployment
 
 1. Clone the repository
-2. Make sure you have docker and docker-compose installed
-3. Run `docker-compose up` in the root directory
-4. Open `localhost:3000` in your browser
+2. Make sure that docker and docker-compose are installed in your machine
+3. Open docker-compose.yaml and define the value of REACT_APP_HOST_IP_ADDRESS with your local ip address 
+4. Run `docker-compose up` in the root directory
+5. Open `localhost:3000` in your browser
 
 <!--2.1 modify add the host ip to the docker-compose file  -->
 
@@ -35,6 +36,9 @@ This app is made up of 3 distinct parts:
         
 * The frontend service  [[dockerfile](./frontend/Dockerfile),[source code](./frontend/frontend/)]
     * Written in React , this is the the main app exposed to the user and it allows easy playlist management and playback with a simple and intuitive UI. It is composed by a single docker container running the frontend app on port 3000 and requires the ip of the host machine to be set as an environment variable during build.
+<div align="center">
+   <img src="./docker.jpg" alt="Docker image" width="300" height="500">
+</div>
 
 <!-- TODO: explain how the containers communicate with each other -->
 
